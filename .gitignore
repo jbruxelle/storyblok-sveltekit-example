@@ -8,9 +8,9 @@ node_modules
 !.env.example
 .vercel
 .output
-_kitql
+src/lib/graphql/_kitql/*
 _gen
 yarn-error.log
-src/lib/storyblok/components-types.d.ts
+src/lib/storyblok/component-types.d.ts
 src/lib/storyblok/imports/*
 src/lib/components/bloks/*
