@@ -1,0 +1,35 @@
+projects:
+  default:
+    schema:
+      ${VITE_STORYBLOK_GRAPHQL_ENDPOINT}:
+        method: POST
+        headers:
+          token: ${STORYBLOK_API_TOKEN}
+          version: ${STORYBLOK_API_VERSION}
+    documents: '**/*.gql'
+    extensions:
+      endpoints:
+        default:
+          url:
+            ${VITE_STORYBLOK_GRAPHQL_ENDPOINT}:
+              method: POST
+              headers:
+                token: ${STORYBLOK_API_TOKEN}
+                version: ${STORYBLOK_API_VERSION}
+      codegen:
+        generates:
+          ./src/lib/graphql/_kitql/graphqlTypes.ts:
+            plugins:
+              - typescript
+              - typescript-operations
+              - typed-document-node
+              - typescript-document-nodes
+
+          ./src/lib/graphql/_kitql/graphqlStores.ts:
+            plugins:
+              - '@kitql/graphql-codegen'
+            config:
+              importBaseTypesFrom: $lib/graphql/_kitql/graphqlTypes
+
+        config:
+          useTypeImports: true

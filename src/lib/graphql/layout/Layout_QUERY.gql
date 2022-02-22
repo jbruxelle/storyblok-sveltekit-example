@@ -1,0 +1,5 @@
+query Layout {
+	LayoutItem(id: "layout") {
+		...LayoutDetail
+	}
+}

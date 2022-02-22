@@ -1,0 +1,7 @@
+fragment LayoutDetail on LayoutItem {
+	content {
+		component
+		header
+		footer
+	}
+}

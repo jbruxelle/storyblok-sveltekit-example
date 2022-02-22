@@ -1,0 +1,7 @@
+<script context="module" lang="ts">
+    import type { {{ name }} } from "{{ source }}";
+</script>
+
+<script lang="ts">
+    export let blok: {{ name }}
+</script>

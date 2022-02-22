@@ -1,0 +1,6 @@
+fragment Page on PageItem {
+	slug
+	content {
+		body
+	}
+}
