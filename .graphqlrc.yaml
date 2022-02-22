@@ -18,18 +18,18 @@ projects:
                 version: ${STORYBLOK_API_VERSION}
       codegen:
         generates:
-          ./src/lib/graphql/_kitql/graphqlTypes.ts:
+          ./src/lib/graphql/_gen/graphqlTypes.ts:
             plugins:
               - typescript
               - typescript-operations
               - typed-document-node
               - typescript-document-nodes
 
-          ./src/lib/graphql/_kitql/graphqlStores.ts:
+          ./src/lib/graphql/_gen/graphqlStores.ts:
             plugins:
               - '@kitql/graphql-codegen'
             config:
-              importBaseTypesFrom: $lib/graphql/_kitql/graphqlTypes
+              importBaseTypesFrom: $lib/graphql/_gen/graphqlTypes
 
         config:
           useTypeImports: true

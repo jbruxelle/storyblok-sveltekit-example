@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import { LayoutQuery } from '$graphql/_kitql/graphqlStores';
+	import { LayoutQuery } from '$graphql/_gen/graphqlStores';
 	import { components } from '$components/bloks';
 	export const load = async ({ fetch }) => {
 		await LayoutQuery({ fetch });
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { LayoutQueryStore } from '$graphql/_kitql/graphqlStores';
+	import { LayoutQueryStore } from '$graphql/_gen/graphqlStores';
 	$: content = $LayoutQueryStore.data.LayoutItem.content;
 </script>
 
