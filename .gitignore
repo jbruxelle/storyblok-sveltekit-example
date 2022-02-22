@@ -11,3 +11,5 @@ node_modules
 _kitql
 _gen
 yarn-error.log
+storyblok/components-types.d.ts
+storyblok/imports
