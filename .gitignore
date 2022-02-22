@@ -13,3 +13,4 @@ _gen
 yarn-error.log
 storyblok/components-types.d.ts
 storyblok/imports
+components/bloks
