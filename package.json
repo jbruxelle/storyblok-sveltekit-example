@@ -22,7 +22,7 @@
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"gen": "yarn gen:storyblok && yarn gen:graphql",
-		"gen:storyblok": "sh ./src/lib/storyblok/scripts/index.sh",
+		"gen:storyblok": "sh storyblok.sh",
 		"gen:graphql": "graphql-codegen --config ./.graphqlrc.yaml -r dotenv/config",
 		"reset": "git clean -xdf"
 	},
