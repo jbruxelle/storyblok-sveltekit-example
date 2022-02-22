@@ -1,7 +1,11 @@
 {
 	"license": "MIT",
-	"name": "storyblok-sveltekit",
+	"name": "storyblok-sveltekit-example",
 	"version": "0.0.1",
+	"author": {
+		"name": "Julian BRUXELLE",
+		"url": "https://github.com/JulianBruxelle"
+	},
 	"type": "module",
 	"scripts": {
 		"prepare": "yarn gen",
