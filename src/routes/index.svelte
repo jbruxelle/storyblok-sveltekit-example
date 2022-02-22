@@ -4,7 +4,7 @@
 	export const load = async (): Promise<LoadOutput> => {
 		return {
 			status: 308,
-			redirect: '/accueil'
+			redirect: '/home'
 		};
 	};
 </script>
