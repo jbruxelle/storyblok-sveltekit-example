@@ -2,15 +2,12 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import watchAndRun from '@kitql/vite-plugin-watch-and-run';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
 	preprocess: preprocess(),
 
 	kit: {
@@ -31,19 +28,7 @@ const config = {
 			build: {
 				target: 'esnext'
 			},
-			plugins: [
-				watchAndRun([
-					{
-						watch: '**/*.gql',
-						run: 'yarn gen:storyblok',
-						watchKind: [ 'ADD' ]
-					},
-					// {
-					// 	watch: '**/*.(gql|graphql)',
-					// 	run: 'yarn gen'
-					// }
-				])
-			]
+			plugins: []
 		}
 	}
 };
