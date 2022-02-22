@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "stordahl.sveltekit-snippets",
+    "graphql.vscode-graphql",
+    "bradlc.vscode-tailwindcss",
+    "svelte.svelte-vscode",
+    "esbenp.prettier-vscode",
+    "wix.vscode-import-cost",
+    "rioukkevin.vscode-git-commit",
+  ]
+}
