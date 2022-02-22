@@ -83,37 +83,3 @@ const generate = async (definitionsFilePath: string) => {
 };
 
 generate('src/lib/storyblok/component-types.d.ts');
-// interfaces.forEach((definition: BlokDefinition) => {
-// 	const path = `src/lib/storyblok/components/${definition.name}.svelte`;
-// 	const exist = fs.existsSync(path);
-// 	const regex = /(\<script lang="ts"\>)([^\<]*)(\<\/script>)?/g;
-
-// 	const computed = format(computeComponent(definition), 'svelte');
-
-// 	const content = computed.match(regex)?.[0];
-
-// 	let next: string = `
-// 		<script lang="ts" context="module">
-// 			import { components } from '$sb-components';
-// 			import { editable } from '../utils/directives';
-// 		</script>
-// 		<script lang="ts"></script>
-// 		<div use:editable={blok}>${definition.name}</div>
-// 	`;
-
-// 	if (exist) {
-// 		const current: string = format(fs.readFileSync(path).toString(), 'svelte');
-// 		next = current;
-// 		if (current.match(regex)?.[0] !== content) {
-// 			fs.writeFileSync(`src/lib/storyblok/components/PREVIOUS.${definition.name}.svelte`, current);
-// 		}
-// 	}
-// 	next = next.replace(regex, computed);
-// 	next = format(next, 'svelte');
-// 	fs.writeFileSync(path, next, { encoding: 'utf8', flag: 'w' });
-// });
-
-// fs.writeFileSync(
-// 	'src/lib/storyblok/components/index.ts',
-// 	format(computeIndex(interfaces), 'typescript')
-// );
