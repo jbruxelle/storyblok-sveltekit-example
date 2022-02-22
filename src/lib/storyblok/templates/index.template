@@ -1,9 +1,5 @@
-{{#names}}
-import {{ this }} from './{{ this }}.svelte';
-{{/names}}
+{{#names}}import {{ this }} from './{{ this }}.svelte';{{/names}}
 
 export const components = {
-	{{#names}}
-	{{ this }},
-	{{/names}}
+	{{#names}}{{ this }},{{/names}}
 };

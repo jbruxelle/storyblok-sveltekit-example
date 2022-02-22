@@ -1,9 +1,15 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import pkg from 'template-file';
 import ts from 'typescript';
 
-const { renderFile } = pkg;
+// The requested module is a CommonJS module,
+// which may not support all module.exports as named exports
+// CommonJS modules can always be imported via the default export
+import pkgTemplateFile from 'template-file';
+import pkgPrettier from 'prettier';
+
+const { format } = pkgPrettier;
+const { renderFile } = pkgTemplateFile;
 
 /**
  *
@@ -72,7 +78,8 @@ const generateBloks = (definitionsFilePath: string, bloksInterfacesNames: string
 const generateIndex = async (bloksInterfacesNames: string[]) => {
 	const names = bloksInterfacesNames.map((interfaceName) => interfaceName.replace('Blok', ''));
 	const code = await renderFile('src/lib/storyblok/templates/index.template', { names });
-	fs.writeFileSync(`src/lib/components/bloks/index.ts`, code);
+	const formattedCode = format(code, { parser: 'typescript' });
+	fs.writeFileSync(`src/lib/components/bloks/index.ts`, formattedCode);
 };
 
 const generate = async (definitionsFilePath: string) => {
