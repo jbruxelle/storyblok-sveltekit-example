@@ -1,7 +1,8 @@
 import { browser, dev } from '$app/env';
 import { version } from '$lib/stores/storyblok/store';
+import type { Page } from '$lib/storyblok/component-types';
 
-export const storyblok = (node: HTMLElement, page: PageItem) => {
+export const storyblok = (node: HTMLElement, page: Page) => {
 	if (browser) {
 		const bridge = (callback: () => void) => {
 			if (document.getElementById('storyblokBridge')) callback();
@@ -26,7 +27,7 @@ export const storyblok = (node: HTMLElement, page: PageItem) => {
 
 		const onInput = (event) => {
 			if (dev) console.info('[EVENT] Storyblok input');
-			page = { content: event?.story?.content };
+			// page = { content: event?.story?.content };
 		};
 
 		bridge(() => {
