@@ -21,9 +21,10 @@
 		"quality:ts:w": "yarn quality:ts --watch",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-		"gen": "yarn gen:storyblok && yarn gen:graphql",
-		"gen:storyblok": "sh storyblok.sh",
-		"gen:graphql": "graphql-codegen --config ./.graphqlrc.yaml -r dotenv/config",
+		"gen": "yarn storyblok:gen && yarn graphql:gen",
+		"graphql:gen": "graphql-codegen --config ./.graphqlrc.yaml -r dotenv/config",
+		"storyblok:gen": "sh storyblok.sh",
+		"storyblok:push": "env-cmd cross-var storyblok push-components --space=%STORYBLOK_SPACE_ID% src/lib/storyblok/components-example.json",
 		"reset": "git clean -xdf"
 	},
 	"devDependencies": {
