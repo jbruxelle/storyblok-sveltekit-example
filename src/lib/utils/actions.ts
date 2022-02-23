@@ -1,8 +1,8 @@
 import { browser, dev } from '$app/env';
+import type { PageDetailFragment } from '$lib/graphql/_gen/graphqlTypes';
 import { version } from '$lib/stores/storyblok/store';
-import type { Page } from '$lib/storyblok/component-types';
 
-export const storyblok = (node: HTMLElement, page: Page) => {
+export const storyblok = (node: HTMLElement, page: PageDetailFragment) => {
 	if (browser) {
 		const bridge = (callback: () => void) => {
 			if (document.getElementById('storyblokBridge')) callback();
