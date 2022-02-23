@@ -1,19 +1,21 @@
 <script lang="ts" context="module">
-	import { LayoutQuery } from '$graphql/_gen/graphqlStores';
 	import { components } from '$components/bloks';
-	export const load = async ({ fetch }) => {
+	import { LayoutQuery, LayoutQueryStore } from '$graphql/_gen/graphqlStores';
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	export const load = async ({ fetch }: LoadInput): Promise<LoadOutput> => {
 		await LayoutQuery({ fetch });
 		return {};
 	};
 </script>
 
 <script lang="ts">
-	import { LayoutQueryStore } from '$graphql/_gen/graphqlStores';
-	$: content = $LayoutQueryStore.data.LayoutItem.content;
+	$: content = $LayoutQueryStore.data?.LayoutItem?.content;
 </script>
 
-{#if $LayoutQueryStore.status === 'DONE'}
+{#if content}
 	<svelte:component this={components[content.component]} blok={content}>
 		<slot />
 	</svelte:component>
+{:else}
+	Loading...
 {/if}

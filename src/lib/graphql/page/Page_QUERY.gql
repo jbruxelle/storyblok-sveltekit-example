@@ -1,0 +1,5 @@
+query Page($slug: ID!) {
+	PageItem(id: $slug) {
+		...PageDetail
+	}
+}

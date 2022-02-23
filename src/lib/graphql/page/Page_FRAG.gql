@@ -1,6 +1,8 @@
-fragment Page on PageItem {
+fragment PageDetail on PageItem {
 	slug
 	content {
 		body
+		component
+		seo
 	}
 }

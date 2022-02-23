@@ -28,7 +28,7 @@
 		"reset": "git clean -xdf"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "^1.0.0-next.23",
+		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
 		"@tsconfig/svelte": "^3.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.31.1",

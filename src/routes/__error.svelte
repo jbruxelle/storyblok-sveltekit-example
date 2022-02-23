@@ -1,16 +1,18 @@
-<script context="module">
-	export function load({ error, status }) {
+<script context="module" lang="ts">
+	import type { ErrorLoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export const load = async ({ error, status }: ErrorLoadInput): Promise<LoadOutput> => {
 		console.error(error);
 		return {
 			props: {
 				title: `${status}: ${error.message}`
 			}
 		};
-	}
+	};
 </script>
 
-<script>
-	export let title;
+<script lang="ts">
+	export let title: string;
 </script>
 
 <h1>{title}</h1>
