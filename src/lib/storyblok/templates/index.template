@@ -4,7 +4,7 @@ import type { SvelteComponent } from 'svelte';
 
 type Component = new (...args: [any]) => SvelteComponent;
 
-export const components = {
+export const components: Record<string, Component> = {
 	{{#names}}{{ this }},{{/names}}
 };
 
