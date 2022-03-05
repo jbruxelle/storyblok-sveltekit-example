@@ -1,21 +1,14 @@
 <script lang="ts" context="module">
-	import { components } from '$components/bloks';
-	import { LayoutQuery, LayoutQueryStore } from '$graphql/_gen/graphqlStores';
+	import { KQL_Layout } from '$graphql/_gen/graphqlStores';
+	import StoryblokComponent from '$lib/storyblok/StoryblokComponent.svelte';
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
 	export const load = async ({ fetch }: LoadInput): Promise<LoadOutput> => {
-		await LayoutQuery({ fetch });
+		await KQL_Layout.query({ fetch });
 		return {};
 	};
 </script>
 
-<script lang="ts">
-	$: content = $LayoutQueryStore.data?.LayoutItem?.content;
-</script>
-
-{#if content}
-	<svelte:component this={components[content.component]} blok={content}>
-		<slot />
-	</svelte:component>
-{:else}
-	Loading...
-{/if}
+<StoryblokComponent blok={$KQL_Layout.data?.LayoutItem?.content}>
+	<slot />
+</StoryblokComponent>

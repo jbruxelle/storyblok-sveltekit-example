@@ -1,9 +1,8 @@
 import { browser, dev } from '$app/env';
-import type { PageDetailFragment } from '$lib/graphql/_gen/graphqlTypes';
 import { version } from '$lib/stores/storyblok/store';
 
-export const storyblok = (node: HTMLElement, page: PageDetailFragment) => {
-	if (browser) {
+export const storyblok = (node: HTMLElement, pageStore: any) => {
+	if (browser && process.env.PREVIEW) {
 		const bridge = (callback: () => void) => {
 			if (document.getElementById('storyblokBridge')) callback();
 			else {
@@ -27,7 +26,7 @@ export const storyblok = (node: HTMLElement, page: PageDetailFragment) => {
 
 		const onInput = (event) => {
 			if (dev) console.info('[EVENT] Storyblok input');
-			// page = { content: event?.story?.content };
+			pageStore.patch({ PageItem: { content: event?.story?.content } });
 		};
 
 		bridge(() => {
@@ -44,8 +43,6 @@ export const storyblok = (node: HTMLElement, page: PageDetailFragment) => {
 					version.set(dev ? 'draft' : 'published');
 				}
 			});
-
-			// storyblok.on('enterEditmode', (event) => update({ page: $page }));
 		});
 	}
 };

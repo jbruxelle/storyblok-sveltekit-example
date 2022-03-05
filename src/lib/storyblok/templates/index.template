@@ -1,5 +1,17 @@
+import type { SvelteComponent } from 'svelte';
+
 {{#names}}import {{ this }} from './{{ this }}.svelte';{{/names}}
+
+type Component = new (...args: [any]) => SvelteComponent;
 
 export const components = {
 	{{#names}}{{ this }},{{/names}}
+};
+
+export const getComponent = (name: string): Component => {
+	if (!components[name]) {
+		console.error(`Component ${name} not found`);
+		return null;
+	}
+	return components[name];
 };
