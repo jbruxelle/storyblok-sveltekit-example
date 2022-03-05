@@ -5,11 +5,13 @@
 </script>
 
 {#if blok}
-	<svelte:component this={components[blok.component]} {blok}>
-		{#if $$slots.default}
+	{#if $$slots.default}
+		<svelte:component this={components[blok.component]} {blok}>
 			<slot />
-		{/if}
-	</svelte:component>
+		</svelte:component>
+	{:else}
+		<svelte:component this={components[blok.component]} {blok} />
+	{/if}
 {:else}
 	Loading...
 {/if}
